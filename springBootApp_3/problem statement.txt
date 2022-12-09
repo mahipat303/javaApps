@@ -1,0 +1,35 @@
+ Q.Create a Spring boot application that will maintain a List of Books:
+
+ Hint: 
+	take a private variable of Lis<Book> books = new ArrayList<>();
+	And add 5 books object to this list inside a method annotated with @PostConstruct
+
+ Each Book will contain this type of information :
+	Book Id : 101,
+	name: "C++",
+	author: "Nitesh",
+	publication: "Rajput Publication",
+	category: "Computer Programming",
+	pages: 1500,
+	price: 240,
+	author_no : G452
+
+
+ 1. Get All books information
+	To get a list of books calls the following endpoint with GET Request.
+	Endpoint: http://localhost:8088/bookservice/books
+ 2. Get the information of any particular book by id
+	To get a particular book, use the following URL with GET request type in postman
+	Endpoint: http://localhost:8088/bookservice/books/<id>
+ 3. Create a new Book
+	To Create New Book use the following URL with the POST Request
+	Endpoint: http://localhost:8088/bookservice/books
+ 4. Delete Book
+	To delete a particular Book.
+	Endpoint: http://localhost:8080/bookservice/books/<id>
+ 5. Update Book
+	To update a Book, use the following URL with the PUT request type in postman
+	Endpoint: http://localhost:8088/bookservice/books/<id>
+ 6. Update Book using Request parameter
+	To update a Book price by taking the price with the Request parameter:
+	Endpoint: http://localhost:8088/bookservice/updateprice/<id>?price=500
