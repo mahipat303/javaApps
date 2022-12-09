@@ -1,0 +1,9 @@
+- Create a Simple Spring Boot application to call the following method of MyService
+
+class:
+-----------
+	public class MyService{
+	    public void sayHello(String name){
+	        System.out.println(“Welcome ”+name);
+	    }
+	}
