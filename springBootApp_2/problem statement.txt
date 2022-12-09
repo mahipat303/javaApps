@@ -1,0 +1,13 @@
+- - Create a Spring Boot application to generate 3 APIs:
+
+/employee: should generate Employee details.
+/employees: should generate the List of 5 employees.
+/hello: should generate the message: “Welcome to Spring Boot”
+
+	class Employee
+	{
+		empId: int
+		name: String
+		address: String
+		salary: int
+	}
