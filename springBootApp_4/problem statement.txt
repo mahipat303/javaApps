@@ -1,0 +1,32 @@
+ Q1. Perform crud on the following table :
+
+ Book will contain this information :
+
+	Book Id :
+	name:
+	author:
+	price:
+
+
+ ● Book :
+------------
+ ○ Get All books information
+	■ To get a list of books
+	■ If no data exist, it should throw
+	BookNotFoundException
+ ○ Get the information of any particular book by id
+	■ To get a particular book
+	■ If a book is not existing, it should throw BookNotFoundException.
+ ○ Create a new Book
+	■ Create New Book
+ ○ Delete Book
+	■ To delete a particular Book from the database based on bookId.
+	■ If a book is not existing, it should throw BookNotFoundException.
+ ○ Update Book
+	■ To update Book in database
+	■ If a book is not existing already, it should throw BookNotFoundException.
+
+
+ Create A Book Controller class, to generate the api for above requirement, Handle the Exceptions properly.
+
+ Note: Make sure that our application should not throw any exception at console.
