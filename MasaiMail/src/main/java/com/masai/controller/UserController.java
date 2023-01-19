@@ -1,0 +1,76 @@
+package com.masai.controller;
+
+import java.util.List;
+
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.masai.model.CurrentUserSession;
+import com.masai.model.LoginDTO;
+import com.masai.model.Mail;
+import com.masai.model.User;
+import com.masai.service.UserService;
+
+@RestController
+@RequestMapping("/masaimail")
+public class UserController {
+
+	@Autowired
+	private UserService uService;
+
+	@PostMapping("/register")
+	public ResponseEntity<User> registerUserHandler(@Valid @RequestBody User user) {
+
+		User rUser = uService.registerUser(user);
+
+		return new ResponseEntity<User>(rUser, HttpStatus.CREATED);
+
+	}
+
+	@PostMapping("/login")
+	public ResponseEntity<CurrentUserSession> userLoginHandler(@RequestBody LoginDTO user) {
+
+		CurrentUserSession rUser = uService.userLogin(user);
+
+		return new ResponseEntity<CurrentUserSession>(rUser, HttpStatus.OK);
+
+	}
+
+	@GetMapping("/mail/{key}")
+	public ResponseEntity<List<Mail>> checkAllMailHandler(@PathVariable("key") String key) {
+
+		List<Mail> mails = uService.checkAllMail(key);
+
+		return new ResponseEntity<List<Mail>>(mails, HttpStatus.OK);
+
+	}
+
+	@GetMapping("/starred/{key}")
+	public ResponseEntity<List<Mail>> checkAllStarredMailHandler(@PathVariable("key") String key) {
+
+		List<Mail> mails = uService.checkAllStaredMail(key);
+
+		return new ResponseEntity<List<Mail>>(mails, HttpStatus.OK);
+
+	}
+
+	@PutMapping("/user/{key}")
+	public ResponseEntity<String> updateUserHandler(@PathVariable("key") String key, @Valid @RequestBody User user) {
+
+		String message = uService.updateUser(key, user);
+
+		return new ResponseEntity<String>(message, HttpStatus.OK);
+
+	}
+
+}
